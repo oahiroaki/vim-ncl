@@ -43,7 +43,7 @@ function! GetNCLIndent()
   let ind = indent(lnum)
 
   " Add indent
-  if getline(lnum) =~? '\v^\s*%(begin|do|if|setvalues|getvalues)'
+  if getline(lnum) =~? '\v^\s*%(begin|do|if|else|setvalues|getvalues)'
     let ind = ind + &sw
   endif
 
