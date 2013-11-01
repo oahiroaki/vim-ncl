@@ -55,7 +55,7 @@ function! GetNCLIndent()
   endif
 
   " Minus indent
-  if getline('.') =~? '\v^\s*%(end)'
+  if getline('.') =~? '\v^\s*%(end|else)'
     let ind = ind - &sw
   endif
 
