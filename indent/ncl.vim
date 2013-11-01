@@ -19,8 +19,14 @@ setlocal shiftwidth=2
 
 function! NCLIndent()
   let plnum = prevnonblank(v:lnum - 1)
-  if getline(plnum) =~# '\v^\s*<begin>'
+  if getline(plnum) =~# '\v^\s*<else\ if>'
+    return indent(plnum) - &l:shiftwidth
+  endif
+  if getline(plnum) =~# '\v^\s*<begin|if|do>'
     return indent(plnum) + &l:shiftwidth
+  endif
+  if getline(plnum) =~# '\v^\s*<end>'
+    return indent(plnum) - &l:shiftwidth
   endif
 endfunction
 
